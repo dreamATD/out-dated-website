@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /Publications/
-title: publications
+permalink: /publications/
+title: Publications
 description: publications by categories in reversed chronological order.
 years: [2021, 2020]
 selected: true
