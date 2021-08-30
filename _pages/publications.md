@@ -1,8 +1,8 @@
 ---
 layout: page
 permalink: /publications/
-title: Publications
-description: publications by categories in reversed chronological order.
+title: Pub & Ms
+description: Post by categories in reversed chronological order.
 years: [2021, 2020]
 selected: true
 nav: true
