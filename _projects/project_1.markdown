@@ -1,7 +1,7 @@
 ---
 layout: page
 title: iDash Privacy & Security Workshop 2020
-description: a project of privacy preserving logistic regression with HE
+description: A project of privacy preserving logistic regression with HE
 img: 
 importance: 1
 category: work
