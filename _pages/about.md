@@ -13,8 +13,8 @@ profile:
     <p>Texas, USA</p>
 
 news: true  # includes a list of news items
+social: false # includes social icons at the bottom of the page
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
 ---
 
 Now I am a first-year PhD in **Texas A&M university** advised by **Yupeng Zhang** and **Juan Garay**. Previously, I attained my bachelor degree in 2020 from **Shanghai Jiao Tong University**, one of the top universities in China and enjoyed my gap year as an intern in **Shanghai Key Laboratory of Privacy-Preserving Computation**
