@@ -6,6 +6,7 @@ description: A growing collection of my cool projects.
 nav: true
 display_categories: [work, fun]
 horizontal: false
+order: 2
 ---
 <div class="projects">
   {% if site.enable_project_categories and page.display_categories %}
