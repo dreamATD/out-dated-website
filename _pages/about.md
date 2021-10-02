@@ -21,4 +21,4 @@ Now I am a first-year PhD in **Texas A&M university** advised by **Yupeng Zhang*
 
 My research interests lie broadly in **cryptography and security**, especially homomorphic encryption, zero-knowledge proof system and their applications in machine learning.
 
-Here is my [Resume](https://liutianyi.site/assets/tianyi_resume.pdf).
+Here is my [Resume](https://liutianyi.site/assets/pdf/tianyi_resume.pdf).
