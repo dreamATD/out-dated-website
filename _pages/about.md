@@ -20,3 +20,5 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 Now I am a first-year PhD in **Texas A&M university** advised by **Yupeng Zhang** and **Juan Garay**. Previously, I attained my bachelor degree in 2020 from **Shanghai Jiao Tong University**, one of the top universities in China and enjoyed my gap year as an intern in **Shanghai Key Laboratory of Privacy-Preserving Computation**
 
 My research interests lie broadly in **cryptography and security**, especially homomorphic encryption, zero-knowledge proof system and their applications in machine learning.
+
+Here is my [Resume](https://liutianyi.site/assets/tianyi_resume.pdf).
