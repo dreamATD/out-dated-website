@@ -1,7 +1,7 @@
 ---
 layout: page
-title: virgo-plus
-description: An efficient interactive zero-knowledge proof scheme based on GKR in terms of unlayered circuit.
+title: hyrax-bls12-381
+description: A polynomial commitment implementation of Hyrax based on BLS12-381 elliptic curve.
 img: 
 importance: 1
 category: work
