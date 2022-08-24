@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-<title>Tianyi  Liu | Blog</title>
+<title>Tianyi  Liu | hyrax-bls12-381</title>
 <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
 ">
 
@@ -31,7 +31,7 @@
 
 <link rel="stylesheet" href="/assets/css/main.css">
 
-<link rel="canonical" href="/blog/">
+<link rel="canonical" href="/projects/project_3_hyrax_bls12_381/">
 
 <!-- JQuery -->
 <!-- jQuery -->
@@ -104,8 +104,6 @@
           
           
           
-          
-          
           <li class="nav-item ">
               <a class="nav-link" href="/publications/">
                 Pub & Ms
@@ -125,11 +123,9 @@
           
           
           <!-- Blog -->
-          <li class="nav-item active">
+          <li class="nav-item ">
             <a class="nav-link" href="/blog/">
               Blog
-              
-              <span class="sr-only">(current)</span>
               
             </a>
           </li>
@@ -155,18 +151,81 @@
     <div class="container mt-5">
       <div class="post">
 
-  <div class="header-bar">
-    <h1>Tianyi Liu</h1>
-    <h2>Share about research and life.</h2>
-  </div>
+  <header class="post-header">
+    <h1 class="post-title">hyrax-bls12-381</h1>
+    <p class="post-description">A polynomial commitment implementation of Hyrax based on BLS12-381 elliptic curve.</p>
+  </header>
 
+  <article>
+    <h2 id="introduction">Introduction</h2>
+<p>This is a polynomial commitment implementation refer to <a href="https://eprint.iacr.org/2017/1132.pdf">Hyrax</a> based on BLS12-381 implemented by <a href="https://github.com/herumi/mcl">mcl</a>. The underline operations of scalar and group element refers to OpenSSL.
+This scheme is particularly for multi-linear extension of an array.</p>
 
-  <ul class="post-list">
+<p>Please refer to the <a href="https://github.com/TAMUCrypto/hyrax-bls12-381/">source code</a>.</p>
+
+<h2 id="usage">Usage</h2>
+<p>You can use this polynomial commitment in this way:</p>
+<pre><code class="language-C++">
+#include &lt;bits/stdc++.h&gt;
+
+// Include the header
+#include &lt;hyrax-bls12-381/polyCommit.hpp&gt;
+
+#define F Fr  // This is the field on which the polynomial is defined.
+#define G G1  // BLS12-381 is friendly to pairing, but here we only use G1.
+#define F_ONE (Fr::one())
+#define F_ZERO (Fr(0))
+
+int main() {
+    u64 n = 1 &lt;&lt; 10;
+    int logn = 10;
     
-  </ul>
+    // Initialize the polynomial coefficients and evaluation point.
+    vector&lt;F&gt; polynomial(n), eval_point(logn);
+    for (auto &amp;x: polynomial) x.setByCSPRNG();
+    for (auto &amp;x: eval_point) x.setByCSPRNG();
+    
+    // Initialize the structure setting.
+    initPairing(mcl::BLS12_381);
 
-  
+    // Generate the generators used in Hyrax.
+    u64 n_sqrt = 1ULL &lt;&lt; (logn - (logn &gt;&gt; 1));
+    vector&lt;G&gt; gens(n_sqrt);
+    for (auto &amp;x: gens) {
+        F tmp;
+        tmp.setByCSPRNG();
+        x = mcl::bn::getG1basePoint() * tmp;
+    }
+    
+    // Initialize the prover.
+    hyrax_bls12_381::polyProver poly_p(polynomial, gens);
+    
+    // Calculate the evaluation
+    F eval_value = poly_p.evaluate(eval_point);
+    
+    // Initialize the verifier and verify the evaluation value.
+    hyrax_bls12_381::polyVerifier poly_v(poly_p, gens);
+    if (poly_v.verify(eval_point, eval_value)) std::cout &lt;&lt; "Correct!" &lt;&lt; std::endl;
+    else std::cout &lt;&lt; "Incorrect!" &lt;&lt; std::endl;
+    
+    return 0;
+}
+</code></pre>
 
+<h2 id="reference">Reference</h2>
+<ul>
+  <li>
+    <p><a href="https://doi.org/10.1109/SP.2018.00060">Doubly-efficient zksnarks without trusted setup</a>. Wahby, R. S., Tzialla, I., Shelat, A., Thaler, J., &amp; Walfish, M. (S&amp;P 2018)</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/hyraxZK/hyraxZK.git">Hyrax</a></p>
+  </li>
+  <li>
+    <p><a href="https://github.com/herumi/mcl">mcl</a></p>
+  </li>
+</ul>
+
+  </article>
 
 </div>
 
