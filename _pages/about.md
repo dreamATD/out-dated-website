@@ -7,6 +7,7 @@ description: A second-year Ph.D. in TAMU.
 profile:
   align: right
   image: prof_pic.jpg
+  image_circular: false # crops the image to make it circular
   address: >
     <p>435 Nagle St</p>
     <p>College Station</p>
